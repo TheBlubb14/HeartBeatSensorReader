@@ -1,25 +1,15 @@
 ﻿using Google.Apis.Fitness.v1.Data;
 using Google.Apis.Fitness.v1;
 using Google.Apis.Services;
-
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Google.Apis.Auth.OAuth2.Flows;
-using Google.Apis.Auth.OAuth2.Responses;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Util.Store;
-using System.Threading;
 using System.Data;
-using Newtonsoft.Json;
 using System.Diagnostics.CodeAnalysis;
-using Google.Apis.Util;
 
 namespace HeartBeatSensorReader;
+
 internal class GoogleFit
 {
     public static bool deleteAll = false;
