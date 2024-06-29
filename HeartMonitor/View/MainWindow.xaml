@@ -1,0 +1,42 @@
+﻿<Window x:Class="HeartMonitor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:vm="clr-namespace:HeartMonitor.ViewModel"
+        xmlns:local="clr-namespace:HeartMonitor"
+        mc:Ignorable="d"
+        Style="{StaticResource MaterialDesignWindow}"
+        d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
+        WindowStyle="None"
+        Topmost="True"
+        SizeToContent="WidthAndHeight"
+        Width="Auto"
+        Height="Auto"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent"
+        MouseDown="Window_MouseDown"
+        Closed="Window_Closed">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0"
+                      ResizeBorderThickness="5" />
+    </WindowChrome.WindowChrome>
+
+    <behavior:Interaction.Triggers>
+        <behavior:EventTrigger EventName="MouseDoubleClick">
+            <behavior:InvokeCommandAction Command="{Binding DoubleClickCommand}"
+                                          PassEventArgsToCommand="True" />
+        </behavior:EventTrigger>
+    </behavior:Interaction.Triggers>
+
+    <Border CornerRadius="10"
+            Background="{DynamicResource  MaterialDesign.Brush.Background}">
+        <Grid Loaded="Window_Loaded">
+            <TextBlock Text="{Binding Reading.BeatsPerMinute}" FontSize="{Binding FontSize}" />
+        </Grid>
+    </Border>
+</Window>

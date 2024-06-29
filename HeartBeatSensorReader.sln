@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28621.142
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35017.193
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartBeatSensorReader", "HeartBeatSensorReader\HeartBeatSensorReader.csproj", "{675C3E9F-1F2F-40D6-A093-FEDABDE934CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeartBeatSensorReader", "HeartBeatSensorReader\HeartBeatSensorReader.csproj", "{675C3E9F-1F2F-40D6-A093-FEDABDE934CD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BleExplorer", "BleExplorer\BleExplorer.csproj", "{47F30272-5DCC-4104-A89F-D72BE66C2472}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blubb", "Blubb\Blubb.csproj", "{16DCB23D-20D7-455B-99BD-C0C1A80C9D54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartMonitor", "HeartMonitor\HeartMonitor.csproj", "{EEF9BB81-E1B1-4A5B-B588-F9D171F9823F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{675C3E9F-1F2F-40D6-A093-FEDABDE934CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{675C3E9F-1F2F-40D6-A093-FEDABDE934CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{675C3E9F-1F2F-40D6-A093-FEDABDE934CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47F30272-5DCC-4104-A89F-D72BE66C2472}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47F30272-5DCC-4104-A89F-D72BE66C2472}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47F30272-5DCC-4104-A89F-D72BE66C2472}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47F30272-5DCC-4104-A89F-D72BE66C2472}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16DCB23D-20D7-455B-99BD-C0C1A80C9D54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16DCB23D-20D7-455B-99BD-C0C1A80C9D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16DCB23D-20D7-455B-99BD-C0C1A80C9D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16DCB23D-20D7-455B-99BD-C0C1A80C9D54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEF9BB81-E1B1-4A5B-B588-F9D171F9823F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEF9BB81-E1B1-4A5B-B588-F9D171F9823F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEF9BB81-E1B1-4A5B-B588-F9D171F9823F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEF9BB81-E1B1-4A5B-B588-F9D171F9823F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
