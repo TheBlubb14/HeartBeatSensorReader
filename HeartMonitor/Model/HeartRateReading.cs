@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Diagnostics;
+using System.IO;
 
 namespace HeartMonitor.Model;
 
@@ -12,6 +13,7 @@ public struct HeartRateReading
     public int[] RRIntervals { get; set; }
     public bool IsError { get; set; }
     public string Error { get; set; }
+    public int SkippedHeartBeats { get; set; }
 
     public override string ToString()
     {
@@ -55,7 +57,11 @@ public struct HeartRateReading
             var rrvalues = new int[rrvalueCount];
             for (var i = 0; i < rrvalueCount; ++i)
             {
-                rrvalues[i] = ms.ReadUInt16();
+                var read = ms.ReadUInt16();
+                // Convert to milliseconds
+                // https://github.com/polarofficial/polar-ble-sdk/issues/343
+                read = (ushort)(read / 1024.0 * 1000.0); 
+                rrvalues[i] = read;
             }
 
             reading.RRIntervals = rrvalues;

@@ -26,9 +26,17 @@
                       ResizeBorderThickness="5" />
     </WindowChrome.WindowChrome>
 
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Window.Resources>
+
     <behavior:Interaction.Triggers>
         <behavior:EventTrigger EventName="MouseDoubleClick">
             <behavior:InvokeCommandAction Command="{Binding DoubleClickCommand}"
+                                          PassEventArgsToCommand="True" />
+        </behavior:EventTrigger>
+        <behavior:EventTrigger EventName="MouseWheel">
+            <behavior:InvokeCommandAction Command="{Binding MouseWheelCommand}"
                                           PassEventArgsToCommand="True" />
         </behavior:EventTrigger>
     </behavior:Interaction.Triggers>
@@ -36,7 +44,69 @@
     <Border CornerRadius="10"
             Background="{DynamicResource  MaterialDesign.Brush.Background}">
         <Grid Loaded="Window_Loaded">
-            <TextBlock Text="{Binding Reading.BeatsPerMinute}" FontSize="{Binding FontSize}" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{Binding ShowLabels}" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0"
+                       Grid.Row="0"
+                       Text="BPM: "
+                       FontSize="{Binding FontSize}" />
+            <TextBlock Grid.Column="1"
+                       Grid.Row="0"
+                       Text="{Binding Reading.BeatsPerMinute}"
+                       FontSize="{Binding FontSize}" />
+
+            <TextBlock Grid.Column="0"
+                       Text="AVG BPM: "
+                       Grid.Row="1"
+                       FontSize="{Binding FontSize}"
+                       Visibility="{Binding ShowAverageBeatsPerMinute, Converter={StaticResource BooleanToVisibilityConverter}}" />
+            <TextBlock Grid.Column="1"
+                       Grid.Row="1"
+                       Text="{Binding AverageBeatsPerMinute}"
+                       FontSize="{Binding FontSize}"
+                       Visibility="{Binding ShowAverageBeatsPerMinute, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+            <TextBlock Grid.Column="0"
+                       Grid.Row="2"
+                       Text="AVG Skip: "
+                       FontSize="{Binding FontSize}"
+                       Visibility="{Binding ShowAverageSkippedHeartBeats, Converter={StaticResource BooleanToVisibilityConverter}}" />
+            <TextBlock Grid.Column="1"
+                       Grid.Row="2"
+                       Text="{Binding AverageSkippedHeartBeats}"
+                       FontSize="{Binding FontSize}"
+                       Visibility="{Binding ShowAverageSkippedHeartBeats, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+            <TextBlock Grid.Column="0"
+                       Grid.Row="3"
+                       Text="AVG RR MS: "
+                       FontSize="{Binding FontSize}"
+                       Visibility="{Binding ShowAverageRR, Converter={StaticResource BooleanToVisibilityConverter}}" />
+            <TextBlock Grid.Column="1"
+                       Grid.Row="3"
+                       Text="{Binding AverageRR}"
+                       FontSize="{Binding FontSize}"
+                       Visibility="{Binding ShowAverageRR, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+            <TextBlock Grid.Column="0"
+                       Grid.Row="4"
+                       Text="AVG HFR MS: "
+                       FontSize="{Binding FontSize}"
+                       Visibility="{Binding ShowAverageHFR, Converter={StaticResource BooleanToVisibilityConverter}}" />
+            <TextBlock Grid.Column="1"
+                       Grid.Row="4"
+                       Text="{Binding AverageHFR}"
+                       FontSize="{Binding FontSize}"
+                       Visibility="{Binding ShowAverageHFR, Converter={StaticResource BooleanToVisibilityConverter}}" />
         </Grid>
     </Border>
 </Window>
